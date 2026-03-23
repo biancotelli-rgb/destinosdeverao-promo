@@ -1,1 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Strik Turismo - Agência de Viagens em Londrina/PR. Pacotes, passagens aéreas, hospedagem, cruzeiros e resorts. Atendimento personalizado desde 2002.">
+    <meta name="keywords" content="viagens, turismo, londrina, pacotes, passagens aéreas, cruzeiros, resorts, Strik Turismo">
+    <meta name="author" content="Strik Turismo">
+    <meta name="robots" content="index, follow">
+    <title>Strik Turismo | Agência de Viagens em Londrina/PR</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* header e navegação */
+        header {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0066b3;
+            letter-spacing: -0.5px;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            color: #4b6b8f;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e2a3e;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #0066b3;
+        }
+        .whatsapp-btn {
+            background: #25d366;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            color: #fff;
+        }
+        /* hero */
+        .hero {
+            background: linear-gradient(135deg, #eef5ff 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            color: #003d66;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            color: #2c4c6e;
+        }
+        .btn-primary {
+            background: #0066b3;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .btn-primary:hover {
+            background: #004c8a;
+        }
+        /* seções */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: #003d66;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #f8fafc;
+            padding: 30px 20px;
+            border-radius: 24px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .service-card i {
+            font-size: 2.8rem;
+            color: #0066b3;
+            margin-bottom: 16px;
+        }
+        .service-card h3 {
+            margin-bottom: 12px;
+        }
+        /* pacotes */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .package-item {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: 0.2s;
+        }
+        .package-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .package-content {
+            padding: 20px;
+        }
+        .package-content h3 {
+            margin-bottom: 8px;
+        }
+        /* reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .review-card {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 20px;
+            font-style: italic;
+        }
+        .review-card h4 {
+            margin-top: 16px;
+            font-style: normal;
+            font-weight: 600;
+        }
+        /* contato / info */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #f0f4f9;
+            padding: 40px;
+            border-radius: 28px;
+        }
+        .contact-details p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .map-placeholder {
+            background: #d9e2ef;
+            border-radius: 16px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        footer {
+            background: #0b2b3b;
+            color: #cbd5e1;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>Strik Turismo</h1>
+            <p>Há 23 anos realizando sonhos</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#pacotes">Pacotes</a></li>
+            <li><a href="#destinos">Destinos</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="https://wa.me/554333451111?text=Olá%2C%20gostaria%20de%20informações%20sobre%20viagens!" class="whatsapp-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Fale no WhatsApp</a>
+    </div>
+</header>
 
+<section class="hero">
+    <div class="container">
+        <h2>A sua melhor maneira de<br>encontrar o destino dos sonhos</h2>
+        <p>Pacotes, passagens, cruzeiros e resorts com atendimento especializado e o cuidado que você merece.</p>
+        <a href="#pacotes" class="btn-primary">Ver ofertas <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<section id="servicos">
+    <div class="container">
+        <h2 class="section-title">Nossos serviços</h2>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-plane-departure"></i><h3>Passagens aéreas</h3><p>Melhores tarifas nacionais e internacionais com condições especiais.</p></div>
+            <div class="service-card"><i class="fas fa-hotel"></i><h3>Hospedagem</h3><p>Hotéis, pousadas e resorts para todos os perfis e destinos.</p></div>
+            <div class="service-card"><i class="fas fa-umbrella-beach"></i><h3>Pacotes completos</h3><p>Viagens em grupo ou individuais com roteiros exclusivos.</p></div>
+            <div class="service-card"><i class="fas fa-headset"></i><h3>Suporte especializado</h3><p>Agentes dedicados para atendimento personalizado.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="pacotes" style="background: #fefefe;">
+    <div class="container">
+        <h2 class="section-title">Pacotes em destaque</h2>
+        <div class="packages-grid">
+            <div class="package-item"><div class="package-img" style="background-image: url('https://placehold.co/600x400/0066b3/white?text=Nordeste');"></div><div class="package-content"><h3>Pacote Nordeste</h3><p>Porto de Galinhas, Fortaleza ou Maceió com voos e hospedagem. 6x sem juros.</p></div></div>
+            <div class="package-item"><div class="package-img" style="background-image: url('https://placehold.co/600x400/004c8a/white?text=Cruzeiro');"></div><div class="package-content"><h3>Cruzeiros</h3><p>Roteiros pelo litoral brasileiro e América do Sul. Tudo incluso.</p></div></div>
+            <div class="package-item"><div class="package-img" style="background-image: url('https://placehold.co/600x400/2c6e9e/white?text=Resorts');"></div><div class="package-content"><h3>Resorts all inclusive</h3><p>Nordeste e exterior: Cancún, Punta Cana, Caribe.</p></div></div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;"><a href="#" class="btn-primary">Solicite seu pacote personalizado</a></div>
+    </div>
+</section>
+
+<section id="destinos">
+    <div class="container">
+        <h2 class="section-title">Destinos incríveis</h2>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-map-marked-alt"></i><h3>Brasil</h3><p>Nordeste, Sul, Campos do Jordão, Gramado e mais.</p></div>
+            <div class="service-card"><i class="fas fa-globe-americas"></i><h3>América</h3><p>Orlando, Miami, Nova York, Buenos Aires, Santiago.</p></div>
+            <div class="service-card"><i class="fas fa-passport"></i><h3>Europa</h3><p>Portugal, França, Itália, Inglaterra – roteiros personalizados.</p></div>
+            <div class="service-card"><i class="fas fa-ship"></i><h3>Cruzeiros internacionais</h3><p>Caribe, Mediterrâneo e Emirados.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="depoimentos" style="background: #f7fafd;">
+    <div class="container">
+        <h2 class="section-title">O que nossos clientes dizem</h2>
+        <div class="reviews-grid">
+            <div class="review-card">“Nossa viagem foi ótima. Obrigada a Cris e a todos da Strik.”<h4>— Izolete Rocha Rossini</h4></div>
+            <div class="review-card">“Grupo Strik Turismo em Natal RN – experiência maravilhosa como todas as outras. Tudo impecável.”<h4>— Eleia Figueira</h4></div>
+            <div class="review-card">“Empresa séria, comprometida, super organizada com todo carinho. Recomendo!”<h4>— Sandra Maria Fernandes</h4></div>
+        </div>
+    </div>
+</section>
+
+<section id="contato">
+    <div class="container">
+        <h2 class="section-title">Fale conosco</h2>
+        <div class="contact-info">
+            <div class="contact-details">
+                <p><i class="fas fa-map-marker-alt" style="color:#0066b3; width:28px;"></i> <strong>Matriz:</strong> Av. Inglaterra, 171 - Igapó, Londrina/PR - CEP 86046-000</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Telefone:</strong> (43) 3345-1111 (verifique o número atualizado)</p>
+                <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> (43) 9 9999-0000</p>
+                <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong> contato@strikturismo.com.br</p>
+                <p><i class="fas fa-building"></i> <strong>CNPJ:</strong> 05.139.490/0001-25</p>
+                <p><i class="fas fa-chart-line"></i> <strong>Inscrição Estadual PR:</strong> 90336013-50</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Abertura:</strong> 17/06/2002 | Mais de 23 anos</p>
+                <p><i class="fas fa-handshake"></i> <strong>Sócios-administradores:</strong> Maria Cristina Delmonaco Strik e Sergio Luiz Strik</p>
+                <p><i class="fas fa-store"></i> <strong>Simples Nacional</strong> | Capital Social: R$ 400.000,00</p>
+            </div>
+            <div>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-pin" style="font-size: 2rem; margin-bottom: 12px;"></i>
+                    <p><strong>Av. Inglaterra, 171 - Igapó</strong><br>Londrina, PR - 86046-000</p>
+                    <a href="https://www.google.com/maps/search/Avenida+Inglaterra+171+Londrina+PR/@-23.3061,-51.1654,17z" target="_blank" class="btn-primary" style="margin-top: 12px; background:#2c6e9e;">Ver no Google Maps</a>
+                </div>
+                <div style="margin-top: 24px; background:#eef2f7; padding: 18px; border-radius: 20px;">
+                    <p><i class="fab fa-instagram"></i> <strong>Instagram:</strong> @strikturismo</p>
+                    <p><i class="fab fa-facebook"></i> <strong>Facebook:</strong> /strikturismo</p>
+                    <p><i class="fas fa-newspaper"></i> <strong>Newsletter:</strong> Inscreva-se para receber ofertas exclusivas!</p>
+                    <form action="#" method="post" style="display: flex; gap: 10px; margin-top: 12px;"><input type="email" placeholder="Seu melhor e-mail" style="flex:1; padding:12px; border-radius:40px; border:1px solid #ccc;"><button type="submit" class="btn-primary" style="background:#0066b3;">Assinar</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>Strik Turismo LTDA | CNPJ: 05.139.490/0001-25 | Av. Inglaterra, 171 - Igapó, Londrina/PR</p>
+        <p>Razão Social: Strik Turismo LTDA | Agência de viagens - CNAE 79.11-2-00</p>
+        <p>© 2026 Strik Turismo. Todos os direitos reservados. | <a href="#">Política de Privacidade</a></p>
+        <p style="margin-top: 16px;"><i class="fas fa-shield-alt"></i> Site otimizado para Google Ads e experiências de viagem</p>
+    </div>
+</footer>
+</body>
+</html>
